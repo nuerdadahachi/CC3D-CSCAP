@@ -32,4 +32,43 @@ The algorithm consists of two main stages:
 ---
 
 ## Repository Structure
+CC3D-CSCAP/
+├── Coarse_scale_identification.py # Coarse-scale 3D CC3D clustering
+├── Fine_scale_identification.py # Adaptive ST-DBSCAN clustering
+├── STDBSCAN.py # Core ST-DBSCAN implementation
+├── Adaptive_parameter_calculation.py # Adaptive threshold estimation
+├── requirements.txt # Python package dependencies
+├── README.md # Project description
+├── examples/
+│ ├── input_sample.csv
+│ └── output_sample.csv
 
+---
+
+## Requirements
+
+- Python 3.7+
+- numpy
+- pandas
+- geopy
+- xarray
+- rioxarray
+- cc3d
+
+Install dependencies using:
+
+```bash
+pip install -r requirements.txt
+Usage
+1. Coarse-Scale Cluster Identification
+python Coarse_scale_identification.py
+Input: Hourly binary raster lightning data (.nc) with spatial resolution of 0.25°
+Output: 3D labeled connected-component clusters (.nc)
+2. Fine-Scale Cluster Refinement
+python Fine_scale_identification.py
+Input: CSV files containing stroke data grouped by CC3D cluster
+Output: CSV files labeled with refined storm system IDs
+License
+MIT License © 2025
+Contact
+For questions or contributions, please contact the repository maintainer via GitHub issues or pull requests.
